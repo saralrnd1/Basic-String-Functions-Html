@@ -69,27 +69,27 @@ function removespace()
   var inStr = document.getElementById("txtin").value;
   var OutStr = inStr.replace(/\s+/g, ''); // Removes all spaces
   document.getElementById("txtout").value=OutStr;
-
+  CopyOut();
 }
 function lowercase()
 {
   var inStr = document.getElementById("txtin").value;
   var OutStr = inStr.toLowerCase();
   document.getElementById("txtout").value=OutStr;
+  CopyOut();
 }
 function uppercase()
 {
   var inStr = document.getElementById("txtin").value;
   var OutStr = inStr.toUpperCase();
   document.getElementById("txtout").value=OutStr;
-
+CopyOut();
 }
 function count()
 {
   var inStr = document.getElementById("txtin").value;
   var OutStr = inStr.length;
   document.getElementById("txtout").value="Total Characters Count(With Space):: "+OutStr;
-
 }
 function countwithoutspace()
 {
@@ -112,4 +112,19 @@ function replace(fStr,rStr)
   else if (fStr==" " && rStr=="\\n") OutStr = inStr.replace(/\./g, '\n'); 
 
   document.getElementById("txtout").value=OutStr;
+  CopyOut();
 }
+
+
+function CopyOut() {
+  debugger;
+            // Get the textarea element
+            var txtout = document.getElementById("txtout");
+            // Select the text in the textarea
+            txtout.select();
+            txtout.setSelectionRange(0, 99999); // For mobile devices
+            // Copy the text to the clipboard
+            document.execCommand("copy");
+            // Show a confirmation message
+            alert("Text copied: " + textarea.value);
+        }
