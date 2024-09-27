@@ -105,11 +105,11 @@ function replace(fStr,rStr)
   var inStr = document.getElementById("txtin").value;
   let regex = new RegExp(fStr, 'g'); 
   let OutStr = inStr.replace(regex, rStr);
-  if (fStr=="." && rStr=="\\n") OutStr = inStr.replace(/\./g, '\n'); 
-  else if (fStr==";" && rStr=="\\n") OutStr = inStr.replace(/\./g, '\n'); 
-  else if (fStr=="," && rStr=="\\n") OutStr = inStr.replace(/\./g, '\n'); 
-  else if (fStr=="=" && rStr=="\\n") OutStr = inStr.replace(/\=/g, '\n'); 
-  else if (fStr==" " && rStr=="\\n") OutStr = inStr.replace(/\./g, '\n'); 
+  if (fStr=="." && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
+  else if (fStr==";" && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
+  else if (fStr=="," && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
+  else if (fStr=="=" && rStr=="\n") OutStr = inStr.replace(/\=/g, '\n'); 
+  else if (fStr==" " && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
 
   document.getElementById("txtout").value=OutStr;
   CopyOut();
@@ -126,5 +126,5 @@ function CopyOut() {
             // Copy the text to the clipboard
             document.execCommand("copy");
             // Show a confirmation message
-            alert("Text copied: " + textarea.value);
+            alert("Text copied: " + txtout.value);
         }
