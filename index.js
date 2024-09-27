@@ -104,12 +104,13 @@ function replace(fStr,rStr)
   debugger
   var inStr = document.getElementById("txtin").value;
   let regex = new RegExp(fStr, 'g'); 
-  let OutStr = inStr.replace(regex, rStr);
-  if (fStr=="." && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
-  else if (fStr==";" && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
-  else if (fStr=="," && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
-  else if (fStr=="=" && rStr=="\n") OutStr = inStr.replace(/\=/g, '\n'); 
-  else if (fStr==" " && rStr=="\n") OutStr = inStr.replace(/\./g, '\n'); 
+  let OutStr ="";
+  if (fStr=="." && rStr=="\\n") OutStr = inStr.replace(/\./g, '\n'); 
+  else if (fStr==";" && rStr=="\\n") OutStr = inStr.replace(/\;/g, '\n'); 
+  else if (fStr=="," && rStr=="\\n") OutStr = inStr.replace(/\,/g, '\n'); 
+  else if (fStr=="=" && rStr=="\\n") OutStr = inStr.replace(/\=/g, '\n'); 
+  else if (fStr==" " && rStr=="\\n") OutStr = inStr.replace(/\ /g, '\n'); 
+  else OutStr = inStr.replace(regex, rStr);
 
   document.getElementById("txtout").value=OutStr;
   CopyOut();
